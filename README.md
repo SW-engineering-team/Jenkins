@@ -3,7 +3,4 @@
 Update SW-engineering-team/Jenkins
 
 README.md 수정 (2026.06.02)
-=======
-Jenkins webhook test by YJ
-Jenkins webhook test by SY 6/1 14:10
-Jenkins webhook test by SY 6/2 14:00
+Test1 (2026.06.02)
