@@ -84,6 +84,16 @@ ${env.BUILD_URL}
     success {
         echo "Build and test succeeded!"
 
+        mail(
+
+        to: 'jswun123@gmail.com',
+
+        subject: 'Jenkins Test',
+
+        body: 'Success'
+
+    )
+        
         emailext(
             subject: "[SUCCESS] ${env.JOB_NAME} #${env.BUILD_NUMBER}",
             body: """
