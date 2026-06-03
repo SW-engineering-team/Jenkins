@@ -77,7 +77,7 @@ Build: ${env.BUILD_NUMBER}
 URL:
 ${env.BUILD_URL}
 """,
-            to: "jswun123@gmail.com, yooyungjoo1@gmail.com"
+            to: "jswun123@gmail.com, yooyungjoo1@gmail.com, choism0423@gmail,com"
         )
     }
 
@@ -95,7 +95,7 @@ Build: ${env.BUILD_NUMBER}
 URL:
 ${env.BUILD_URL}
 """,
-            to: "jswun123@gmail.com, yooyungjoo1@gmail.com"
+            to: "jswun123@gmail.com, yooyungjoo1@gmail.com, choism0423@gmail.com"
 )
     }
 }
