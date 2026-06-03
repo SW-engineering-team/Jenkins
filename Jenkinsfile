@@ -56,19 +56,47 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            echo "[*] Archiving test results..."
-            junit "${REPORT_DIR}/**/*.xml"
-            archiveArtifacts artifacts: "${REPORT_DIR}/**/*", allowEmptyArchive: true
-        }
-
-        failure {
-            echo "Build or test failed!"
-        }
-
-        success {
-            echo "Build and test succeeded!"
-        }
+post {
+    always {
+        echo "[*] Archiving test results..."
+        junit "${REPORT_DIR}/**/*.xml"
+        archiveArtifacts artifacts: "${REPORT_DIR}/**/*", allowEmptyArchive: true
     }
+
+    failure {
+        echo "Build or test failed!"
+
+        emailext(
+            subject: "[FAIL] ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+            body: """
+빌드 실패
+
+Job: ${env.JOB_NAME}
+Build: ${env.BUILD_NUMBER}
+
+URL:
+${env.BUILD_URL}
+""",
+            to: "jswun123@gmail.com"
+        )
+    }
+
+    success {
+        echo "Build and test succeeded!"
+
+        emailext(
+            subject: "[SUCCESS] ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+            body: """
+빌드 성공
+
+Job: ${env.JOB_NAME}
+Build: ${env.BUILD_NUMBER}
+
+URL:
+${env.BUILD_URL}
+""",
+            to: "jswun123@gmail.com"
+        )
+    }
+}
 }
